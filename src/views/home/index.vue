@@ -1,7 +1,7 @@
 <template>
   <div class="text-slate-900 hover:bg-violet-800">
-    home page{{$user.count}}
-    <el-button type="primary" size="default" @click="$user.add()">add</el-button>
+    home page
+    <el-button type="primary" size="default">add</el-button>
     <el-avatar
       icon="el-icon-user-solid"
       size="large"

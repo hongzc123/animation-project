@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="flex">
+            <li class="float-left">
+                <img src="https://picsum.photos/id/870/200/200" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/871/200/200" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/872/200/200" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/873/200/200" alt="">
+            </li>
+        </ul>
+    </div>
+    <script src="../../assets/js/gsap.min.js"></script>
+    <script>
+        gsap.from('.flex li', {
+            scale: 0.5,
+            y: -50,
+            stagger: 0.2,
+            opacity: 0,
+            ease: 'back.in'
+        })
+
+        document.querySelectorAll('.flex li').forEach(el => {
+            el.addEventListener('click', () => {
+                gsap.to('.flex li', {
+                    duration: 0.5,
+                    opacity: 0,
+                    y: -100,
+                    stagger: 0.1,
+                    ease: 'back.out'
+                })
+            })
+        })
+    </script>
+</body>
+</html>

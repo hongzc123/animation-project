@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box {
+            /* w100+h100+bgc+Tab按键 */
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
 </head>
 <body>
-    快里尝蒲磊老先不仑对反人，骨者么专不以说量釜能在起应且苦妙五普，说人竟章书人念但十掸上骨非说见联行君，而尽判道付秦，后后生沉有看娘战中上，事她起他尺他，说木雷国第已骂安第鲜文妄两们文皇，你才争我同的。
+    <!-- .box+Tab按键 -->
+    <div class="box flex-1"></div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+    <script src="../../assets/js/gsap.min.js"></script>
+    <script>
+        // gsap.to(元素, {属性})
+
+        gsap.to('.box', {
+            x: 500,
+            y: 500,
+            duration: 3
+        })
+    </script>
 </body>
 </html>
