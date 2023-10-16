@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+        }
+        .float-left {
+            padding: 10px;
+            margin: 0 auto;
+        }
+        ul li {
+            list-style: none;
+        }
+        img {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="flex">
+            <li class="float-left">
+                <img src="https://picsum.photos/id/870/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/871/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/872/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/873/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/574/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/575/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/576/200/150" alt="">
+            </li>
+            <li class="float-left">
+                <img src="https://picsum.photos/id/577/200/150" alt="">
+            </li>
+        </ul>
+    </div>
+    <script src="../../assets/js/gsap.min.js"></script>
+    <script>
+        gsap.from('.flex li', {
+            // scale: 0.5,
+            // y: -50,
+            // stagger: 0.2,
+            // opacity: 0,
+            // ease: 'back.in'
+
+            scale: 0.5,
+            duration: 1,
+            // rotation: 360,
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.2,
+            ease: 'bounce.out',
+            force3D: true
+        })
+
+        document.querySelectorAll('.flex li').forEach(el => {
+            el.addEventListener('click', () => {
+                gsap.to('.flex li', {
+                    duration: 0.5,
+                    opacity: 0,
+                    y: -100,
+                    stagger: 0.1,
+                    ease: 'back.out'
+                })
+            })
+        })
+    </script>
+</body>
+</html>
