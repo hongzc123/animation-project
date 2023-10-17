@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            /* 计算方法 15 / (1920/100) */
+            font-size: 0.78125vw !important;
+            overflow: hidden;
+        }
+        .screen1 {
+            position: relative;
+        }
+        .pic {
+            width: 127em;
+        }
+        .pic img {
+            position: absolute;
+            top: 15em;
+        }
+
+        .pic1,
+        .pic7 {
+            width: 11.266666666em;
+        }
+        .pic2,
+        .pic6 {
+            width: 13.066666666em;
+        }
+        .pic3,
+        .pic5 {
+            width: 14.866666666em;
+        }
+
+        .pic4 {
+            width: 18.75em;
+            left: 55.125em;
+        }
+        .pic1,
+        .pic2,
+        .pic3 {
+            left: 55.125em;
+            z-index: -1;
+        }
+        .pic5,
+        .pic6,
+        .pic7 {
+            right: 55.125em;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen1">
+        <div class="pic">
+          <!-- <img
+            class="pic1"
+            src="https://picsum.photos/200/300?r=1"
+            alt=""
+          />
+          <img
+            class="pic2"
+            src="https://picsum.photos/200/300?r=2"
+            alt=""
+          />
+          <img
+            class="pic3"
+            src="https://picsum.photos/200/300?r=3"
+            alt=""
+          />
+          <img
+            class="pic4"
+            src="https://picsum.photos/200/300?r=4"
+            alt=""
+          />
+          <img
+            class="pic5"
+            src="https://picsum.photos/200/300?r=5"
+            alt=""
+          />
+          <img
+            class="pic6"
+            src="https://picsum.photos/200/300?r=6"
+            alt=""
+          />
+          <img
+            class="pic7"
+            src="https://picsum.photos/200/300?r=7"
+            alt=""
+          /> -->
+          <img
+            class="pic1"
+            src="../../assets/image/pic1.jpg"
+            alt=""
+          />
+          <img
+            class="pic2"
+            src="../../assets/image/pic2.jpg"
+            alt=""
+          />
+          <img
+            class="pic3"
+            src="../../assets/image/pic3.jpg"
+            alt=""
+          />
+          <img
+            class="pic4"
+            src="../../assets/image/pic4.jpg"
+            alt=""
+          />
+          <img
+            class="pic5"
+            src="../../assets/image/pic5.jpg"
+            alt=""
+          />
+          <img
+            class="pic6"
+            src="../../assets/image/pic6.jpg"
+            alt=""
+          />
+          <img
+            class="pic7"
+            src="../../assets/image/pic7.jpg"
+            alt=""
+          />
+        </div>
+    </div>
+
+    <script src="../../assets/js/gsap.min.js"></script>
+    <script>
+        // 数据：图片4 改大小 18.75em 到 16.75em
+        // 数据：图片1和7 改左右 55.125em 到 14.3em
+        // 数据：图片2和6 改左右 55.125em 到 26.1em
+        // 数据：图片3和5 改左右 55.125em 到 39.8em
+
+        const t = gsap.timeline()
+        t.fromTo('.pic4', { width: '18.75em' }, { width: '16.75em' })
+        t.fromTo('.pic1', { left: '55.125em' }, { left: '14.3em' }, '<')
+        t.fromTo('.pic7', { right: '55.125em' }, { right: '14.3em' }, '<')
+        t.fromTo('.pic2', { left: '55.125em' }, { left: '26.1em' }, '<')
+        t.fromTo('.pic6', { right: '55.125em' }, { right: '26.1em' }, '<')
+        t.fromTo('.pic3', { left: '55.125em' }, { left: '39.8em' }, '<')
+        t.fromTo('.pic5', { right: '55.125em' }, { right: '39.8em' }, '<')
+    </script>
+</body>
+</html>
