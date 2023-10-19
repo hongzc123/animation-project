@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router'
 import Home from '../views/home/index.vue'
 import Gsap1 from '../gsap/gsap1.vue'
 import Gsap2 from '../gsap/gsap2.vue'
+import Gsap3 from '../gsap/gsap3.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -19,6 +20,11 @@ const routes: RouteRecordRaw[] = [
         path: '/gsap2',
         name: 'gsap2',
         component: Gsap2
+    },
+    {
+        path: '/gsap3',
+        name: 'gsap3',
+        component: Gsap3
     }
 ]
 
