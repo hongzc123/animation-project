@@ -43,7 +43,7 @@ onMounted(() => {
       .fromTo(".pic2", { left: "55.125em" }, { left: "26.1em" }, "<")
       .fromTo(".pic6", { right: "55.125em" }, { right: "26.1em" }, "<")
       .fromTo(".pic3", { left: "55.125em" }, { left: "39.8em" }, "<")
-      .fromTo(".pic5", { right: "55.125em" }, { right: "39.8em" }, "<")
+      .fromTo(".pic5", { right: "55.125em" }, { right: "39.8em" }, "<"),
   });
 });
 </script>
@@ -57,32 +57,36 @@ onMounted(() => {
 .pic {
   position: absolute;
   width: 127em;
-  //   top: 70%;
+  top: 70%;
   //   top: 15em;
-  top: 50%;
-  transform: translateY(-50%);
+  // top: 25%;
+  // transform: translateY(-50%);
 }
 .pic img {
   position: absolute;
   //   top: 15em;
-  top: 0;
+  // top: 0;
 }
 .pic1,
 .pic7 {
   width: 11.266666666em;
+  bottom: 5.26em;
 }
 .pic2,
 .pic6 {
   width: 13.066666666em;
+  bottom: 3.17em;
 }
 .pic3,
 .pic5 {
   width: 14.866666666em;
+  bottom: 1.06em;
 }
 
 .pic4 {
   width: 18.75em;
   left: 55.125em;
+  bottom: 0;
 }
 .pic1,
 .pic2,

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[1500px]">
+  <div class="h-[1500px] font-calc">
     <div class="screen1">
       <div class="pic">
         <img class="pic1" src="../assets/image/pic1.jpg" alt="" />
@@ -40,7 +40,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-html {
+.font-calc {
   /* 计算方法 15 / (1920/100) */
   font-size: 0.78125vw !important;
   overflow: hidden;
