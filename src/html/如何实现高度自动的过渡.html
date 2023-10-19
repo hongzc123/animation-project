@@ -4,26 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 1 -->
     <style>
-        .content {
-            height: 0;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .btn, .btn2, .btn3, .btn4 {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            position: relative;
+            text-align: center;
+            background-color: #409eff;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            outline: none;
+            border: none;
+            transition: 0.1s;
+            font-weight: 500;
+        }
+        .detail, .detail2 {
+            position: absolute;
+            left: 0;
+            top: 32px;
+            z-index: 1;
+            width: 200px;
+            /* height: 0; */
+            min-height: 0;
+            line-height: 1.5;
+            background-color: #409eff;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .inner {
+            word-break: break-all;
+            padding: 20px;
+            text-align: center;
+        }
 
+        /* 1 */
+        /* .content {
+            height: 0;
+            transition: 0.5s;
         }
         .btn:hover .content{
             height: auto;
+        } */
+
+        /* 2 */
+        .content {
+            max-height: 0;
+            transition: 0.5s;
+            /* transition: 2s; */
+        }
+        .btn:hover .content{
+            max-height: 500px;
+        }
+
+        /* 3 */
+        .detail2 {
+            transform-origin: center top;
+            transform: scaleY(0);
+            transition: 0.5s;
+        }
+        .btn2:hover .detail2 {
+            transform: scaleY(1);
+        }
+
+        /* 4 */
+        .detail3 {
+            position: absolute;
+            left: 0;
+            top: 32px;
+            z-index: 1;
+            height: 0;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: 0.5s;
+        }
+        .content3 {
+            width: 200px;
+            min-height: 0;
+            line-height: 1.5;
+            background-color: #409eff;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .btn3:hover .detail3 {
+            grid-template-rows: 1fr;
+        }
+
+        /* 5 */
+        .btn4:active {
+            background: #3a8ee6;
+        }
+        .btn4:disabled {
+            background: #66b1ff80;
+            cursor: not-allowed;
+        }
+        .detail4 {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            /* top: 32px; */
+            z-index: 1;
+            height: 0;
+            overflow: hidden;
+            padding-top: 0.2em;
+        }
+        .content4 {
+            width: 200px;
+            min-height: 0;
+            line-height: 1.5;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .btn4:hover .detail4 {
+            
         }
     </style>
 </head>
 <body>
-    <div class="btn">
-        hover me
-        <div class="detail">
-            <div class="content">
-                <div class="inner">
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, impedit optio. Fugit cum debitis eligendi ullam deleniti optio voluptate iste, dolore voluptates autem quisquam quibusdam animi perspiciatis ad at nihil dolores rerum tempora aliquid blanditiis dolorem ex! Illum ipsum cum voluptates commodi at ad sed aspernatur nesciunt, ipsam quos libero iste voluptatibus doloribus voluptas fugit dicta iure, porro eveniet, ut quas. Ullam quam modi aperiam molestias unde itaque consectetur fugiat velit est repudiandae maxime eum sed laboriosam voluptatum voluptates dolore vero in dolor magni, illo enim ducimus aspernatur harum! Inventore impedit a, ut mollitia quod officia minus ducimus. Veritatis, aliquid neque maxime ex, deserunt laboriosam ratione vel quam necessitatibus distinctio odit? Debitis, at. Accusantium, neque nostrum tempore est nihil unde dolorem magnam ratione? 
+    <div class="grid">
+        <div class="btn">
+            hover me1
+            <div class="detail">
+                <div class="content">
+                    <div class="inner">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde possimus enim deleniti distinctio dolorem laborum blanditiis nobis magni labore! Vel nesciunt nisi natus quis quaerat quisquam doloremque aspernatur explicabo suscipit cumque optio magnam soluta ex, totam ullam reiciendis quod in sunt laborum? Laborum obcaecati voluptas hic impedit.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn2">
+            hover me2
+            <div class="detail2">
+                <div class="content2">
+                    <div class="inner">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde possimus enim deleniti distinctio dolorem laborum blanditiis nobis magni labore! Vel nesciunt nisi natus quis quaerat quisquam doloremque aspernatur explicabo suscipit cumque optio magnam soluta ex, totam ullam reiciendis quod in sunt laborum? Laborum obcaecati voluptas hic impedit.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn3">
+            hover me3
+            <div class="detail3">
+                <div class="content3">
+                    <div class="inner">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde possimus enim deleniti distinctio dolorem laborum blanditiis nobis magni labore! Vel nesciunt nisi natus quis quaerat quisquam doloremque aspernatur explicabo suscipit cumque optio magnam soluta ex, totam ullam reiciendis quod in sunt laborum? Laborum obcaecati voluptas hic impedit.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn4">
+            hover me4
+            <div class="detail4">
+                <div class="content4">
+                    <div class="inner">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde possimus enim deleniti distinctio dolorem laborum blanditiis nobis magni labore! Vel nesciunt nisi natus quis quaerat quisquam doloremque aspernatur explicabo suscipit cumque optio magnam soluta ex, totam ullam reiciendis quod in sunt laborum? Laborum obcaecati voluptas hic impedit.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const btn4 = document.querySelector('.btn4');
+        const detail4 = document.querySelector('.detail4');
+        btn4.onmouseenter = () => {
+            // 先设置为auto才能拿到高度的数值
+            detail4.style.height = 'auto';
+            // 获取高度
+            const data = detail4.getBoundingClientRect();
+            console.log(data.height);
+            // 设置为auto后再设置为0不会闪烁，因为浏览器来不及绘制
+            detail4.style.height = 0;
+            detail4.style.transition = '0.3s';
+            // 避免设置为0后再马上改为数值，造成只渲染最终状态
+            // 需要强行渲染一次，随便读一个属性
+            detail4.offsetHeight;
+            // requestAnimationFrame()
+            console.log(detail4.offsetHeight);
+            detail4.style.height = data.height + 'px';
+        }
+        btn4.onmouseleave = () => {
+            detail4.style.height = 0;
+            detail4.style.transition = '0.3s';
+        }
+    </script>
 </body>
 </html>
