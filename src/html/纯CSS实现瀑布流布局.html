@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纯CSS实现瀑布流布局</title>
+    <style>
+        .container {
+            width: 50%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 表示砖块 */
+            grid-template-rows: masonry; 
+            grid-gap: 10px;
+        }
+        .carousel-img {
+            width: 280px;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- 目前只支持火狐浏览器，
+        需要在Firefox:about:config页面中
+        输入grid-template-masonry，
+        layout.css.grid-template-masonry-value.enabled选项选择true
+    -->
+    <div class="container">
+        <img class="carousel-img" src="../assets/image/bg1.jpg" alt />
+        <img class="carousel-img" src="../assets/image/pic1.jpg" alt />
+        <img class="carousel-img" src="../assets/image/coverflow5.png" alt />
+        <img class="carousel-img" src="../assets/image/OIP (1).jpg" alt />
+        <img class="carousel-img" src="../assets/image/pic2.jpg" alt />
+        <img class="carousel-img" src="../assets/image/OIP.jpg" alt />
+    </div>
+</body>
+</html>

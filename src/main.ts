@@ -4,7 +4,8 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import useUserStore from './store/user'
-import './assets/style/index.scss'
+import './assets/css/index.scss'
+import directives from '../src/directives/index'
 
 import "element-plus/theme-chalk/dark/css-vars.css"
 
@@ -13,3 +14,4 @@ app.use(router)
 app.use(store)
 app.config.globalProperties.$user = useUserStore()
 app.mount('#app')
+directives(app)

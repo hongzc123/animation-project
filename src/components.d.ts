@@ -11,6 +11,8 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElImage: typeof import('element-plus/es')['ElImage']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    ImagePalette: typeof import('./components/ImagePalette.vue')['default']
+    Resize: typeof import('./components/Resize.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
