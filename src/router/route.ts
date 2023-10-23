@@ -7,6 +7,8 @@ import Gsap3 from '../gsap/gsap3.vue'
 import Gsap4 from '../gsap/gsap4.vue'
 import ImagePalette from '../components/ImagePalette.vue'
 import Resize from '../components/Resize.vue'
+import ScrollTo1 from '../gsap/scrollTo1.vue'
+import Carousel from '../components/Carousel.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -43,7 +45,17 @@ const routes: RouteRecordRaw[] = [
         path: '/resize',
         name: 'Resize',
         component: Resize
-    }
+    },
+    {
+        path: '/scrollTo1',
+        name: 'ScrollTo1',
+        component: ScrollTo1
+    },
+    {
+        path: '/carousel',
+        name: 'Carousel',
+        component: Carousel
+    },
 ]
 
 export default routes
