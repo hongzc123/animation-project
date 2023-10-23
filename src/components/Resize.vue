@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div v-resize="handleSizeChange" ref="chartRef" class="charts"></div>
+  <div class="container" v-resize="handleSizeChange" ref="chartRef">
+    <div class="charts h-5 bg-slate-500"></div>
   </div>
 </template>
 
@@ -10,10 +10,11 @@ const chartRef = ref(null);
 const width = ref(500);
 // useCharts(width, chartRef);
 
-const handleSizeChange = size => {
+const handleSizeChange = (size) => {
   width.value = size.width;
   console.log(width.value);
-  console.log(size.value);
+  console.log(size.width);
+  chartRef.value.style.width = width.value + "px";
 };
 </script>
 
