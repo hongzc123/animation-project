@@ -1,5 +1,6 @@
 const map = new WeakMap()
 
+// 监听元素尺寸的变化
 const ob = new ResizeObserver((entries) => {
     for (const entry of entries) {
         console.log(entry)

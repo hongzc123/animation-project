@@ -5,10 +5,11 @@ import Gsap1 from '../gsap/gsap1.vue'
 import Gsap2 from '../gsap/gsap2.vue'
 import Gsap3 from '../gsap/gsap3.vue'
 import Gsap4 from '../gsap/gsap4.vue'
-import ImagePalette from '../components/ImagePalette.vue'
-import Resize from '../components/Resize.vue'
+import ImagePalette from '../views/other/imagePalette.vue'
+import Resize from '../views/other/resize.vue'
 import ScrollTo1 from '../gsap/scrollTo1.vue'
-import Carousel from '../components/Carousel.vue'
+import Carousel from '../views/other/carousel.vue'
+import SmoothRise from '../views/other/smoothRise.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -56,6 +57,11 @@ const routes: RouteRecordRaw[] = [
         name: 'Carousel',
         component: Carousel
     },
+    {
+        path: '/smoothRise',
+        name: 'SmoothRise',
+        component: SmoothRise
+    }
 ]
 
 export default routes

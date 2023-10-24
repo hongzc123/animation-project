@@ -4,13 +4,13 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 // import { useCharts } from "../utils/useCharts";
 const chartRef = ref(null);
 const width = ref(500);
 // useCharts(width, chartRef);
 
-const handleSizeChange = (size) => {
+const handleSizeChange = (size: any) => {
   width.value = size.width;
   console.log(width.value);
   console.log(size.width);

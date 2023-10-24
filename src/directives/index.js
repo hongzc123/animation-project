@@ -1,6 +1,7 @@
 import sizeDirect from "./sizeDirect";
+import slideDirect from "./slideDirect";
 
-const directives = [sizeDirect]
+const directives = [sizeDirect, slideDirect]
 
 export default (app) => {
     directives.forEach((directive) => {
