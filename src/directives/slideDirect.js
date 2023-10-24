@@ -7,16 +7,30 @@ const animationMap = new WeakMap();
 // 默认就是判断跟视口有没有重叠
 const ob = new IntersectionObserver((entries) => {
     console.log(entries)
-    for(const entry of entries) {
+    for (const entry of entries) {
         if (entry.isIntersecting) {
             // entry.target.getAnimations()
+            const animation = animationMap.get(entry.target)
+            animation.play();
+            ob.unobserve(entry.target)
         }
     }
 })
 
+// 判断是否在视口之下
+const isBelowViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    console.log(el)
+    console.log(rect)
+    return rect.top > window.innerHeight;
+}
+
 export default {
     name: 'slide-in',
     mounted(el) {
+        if (!isBelowViewport(el)) {
+            return;
+        }
         const animation = el.animate([
             // 关键帧
             {
