@@ -12,6 +12,7 @@
             height: 150px;
             border: 3px solid #000;
             position: relative;
+            overflow: hidden;
         }
 
         .carousel-list {
@@ -19,6 +20,7 @@
             height: 100%;
             display: flex;
             position: relative;
+            z-index: -1;
         }
 
         .carousel-item {
@@ -37,16 +39,20 @@
             left: 50%;
             transform: translateX(-50%);
             bottom: 3%;
+        }
 
-            span {
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                border: 2px solid #ccc;
-                margin: 0 3px;
-                cursor: pointer;
-                display: inline-flex;
-            }
+        .indicator span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            margin: 0 3px;
+            cursor: pointer;
+            display: inline-flex;
+        }
+
+        .active {
+            background-color: #fff;
         }
 
         .carousel-arrow {
@@ -93,8 +99,8 @@
         <div class="carousel-arrow carousel-arrow-right">》</div>
         <div class="indicator">
             <span class="active"></span>
-            <span></span>
-            <span></span>
+            <span class=""></span>
+            <span class=""></span>
         </div>
     </div>
 
@@ -106,10 +112,12 @@
             indicator: document.querySelectorAll(".indicator span")
         };
         const count = doms.indicator.length; // 轮播图数量
+        let curIndex = 0; // 当前轮播图索引
         console.log(doms);
         console.log(count);
 
         const moveTo = index => {
+            console.log('moveTo', index)
             doms.carouselList.style.transform = `translateX(-${index * 100}%)`;
             doms.carouselList.style.transition = "all 0.5s";
             // 去掉指示器的选中效果
@@ -117,6 +125,7 @@
             active.classList.remove("active");
             // 添加指示器
             doms.indicator[index].classList.add("active");
+            curIndex = index
         };
 
         doms.indicator.forEach((item, i) => {
@@ -125,18 +134,52 @@
             };
         });
 
-        const moveLeft = () => { };
+        const moveLeft = () => {
+            // if (已经是第一张图了) {
+            //     console.log('无缝')
+            // } else {
+            //     moveTo(当前索引-1)
+            // }
+            if (curIndex === 0) {
+                console.log(count)
+                console.log('moveLeft', curIndex)
+                doms.carouselList.style.transform = `translateX(-${count * 100}%)`;
+                doms.carouselList.style.transition = 'none'
+                // 等待浏览器渲染后再执行 requestAnimationFrame(() => {})
+                // 强制渲染 获取元素的几何属性 位置或尺寸 doms.carouselList.getBoundingClientRect() | doms.carouselList.clientHeight
+                doms.carouselList.clientHeight
+                moveTo(count - 1)
+            } else {
+                console.log('moveLeft', curIndex - 1)
+                moveTo(curIndex - 1)
+            }
+        };
 
-        const moveRight = () => { };
+        const moveRight = () => {
+            if (curIndex === count - 1) {
+                console.log('moveRight', curIndex)
+                doms.carouselList.style.transform = `translateX(100%)`;
+                doms.carouselList.style.transition = 'none'
+                doms.carouselList.clientHeight
+                moveTo(0)
+            } else {
+                console.log('moveRight', curIndex + 1)
+                moveTo(curIndex + 1)
+            }
+        };
 
-        // doms.arrowLeft.onclick = moveLeft;
-        // doms.arrowRight.onclick = moveRight;
+        doms.arrowLeft.onclick = moveLeft;
+        doms.arrowRight.onclick = moveRight;
 
         const init = () => {
+            // 找到轮播区域的第一个元素
             const firstCloned = doms.carouselList.firstElementChild.cloneNode(true);
+            // 最后一个复制一份放到第一个
             const lastCloned = doms.carouselList.lastElementChild.cloneNode(true);
             lastCloned.style.marginLeft = "-100%";
+            // appendChild放到末尾
             doms.carouselList.appendChild(firstCloned);
+            // insertBefore放到第一个
             doms.carouselList.insertBefore(
                 lastCloned,
                 doms.carouselList.firstElementChild
