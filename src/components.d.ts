@@ -16,5 +16,6 @@ declare module 'vue' {
     Resize: typeof import('./components/Resize.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    XScroll: typeof import('./components/XScroll.vue')['default']
   }
 }

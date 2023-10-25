@@ -10,6 +10,7 @@ import Resize from '../views/other/resize.vue'
 import ScrollTo1 from '../gsap/scrollTo1.vue'
 import Carousel from '../views/other/carousel.vue'
 import SmoothRise from '../views/other/smoothRise.vue'
+import HorizontalScroll from '../views/other/horizontalScroll.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -61,6 +62,11 @@ const routes: RouteRecordRaw[] = [
         path: '/smoothRise',
         name: 'SmoothRise',
         component: SmoothRise
+    },
+    {
+        path: '/horizontalScroll',
+        name: 'HorizontalScroll',
+        component: HorizontalScroll
     }
 ]
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-resize="handleSizeChange" ref="chartRef">
+  <div class="container" v-size-ob="handleSizeChange" ref="chartRef">
     <div class="charts h-5 bg-slate-500"></div>
   </div>
 </template>

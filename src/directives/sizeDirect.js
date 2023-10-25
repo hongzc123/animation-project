@@ -7,7 +7,7 @@ const ob = new ResizeObserver((entries) => {
         // 运行entry.targe 对应的回调函数
         const handler = map.get(entry.target)
         if (handler) {
-            console.log('first')
+            // console.log('first')
             console.log(entry.borderBoxSize[0])
             handler({
                 width: entry.borderBoxSize[0].inlineSize,
@@ -19,14 +19,14 @@ const ob = new ResizeObserver((entries) => {
 })
 
 export default {
-    name: 'resize',
+    name: 'size-ob',
     mounted(el, binding) {
-        console.log(el, binding)
+        // console.log(el, binding)
         // 监听元素尺寸的变化
         ob.observe(el)
         map.set(el, binding.value)
     },
-    unmounted() {
+    unmounted(el) {
         // 取消监听
         ob.unobserve(el)
     }
