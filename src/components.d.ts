@@ -7,14 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Carousel: typeof import('./components/Carousel.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElImage: typeof import('element-plus/es')['ElImage']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    ImagePalette: typeof import('./components/ImagePalette.vue')['default']
-    Resize: typeof import('./components/Resize.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TypeSelector: typeof import('./components/TypeSelector.vue')['default']
   }
 }
