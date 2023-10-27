@@ -11,6 +11,7 @@ import ScrollTo1 from '../gsap/scrollTo1.vue'
 import Carousel from '../views/other/carousel.vue'
 import SmoothRise from '../views/other/smoothRise.vue'
 import HorizontalScroll from '../views/other/horizontalScroll.vue'
+import ImageSelect from '../views/other/imageSelect.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -67,6 +68,11 @@ const routes: RouteRecordRaw[] = [
         path: '/horizontalScroll',
         name: 'HorizontalScroll',
         component: HorizontalScroll
+    },
+    {
+        path: '/imageSelect',
+        name: 'ImageSelect',
+        component: ImageSelect
     }
 ]
 
