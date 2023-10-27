@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动元素到可视区域</title>
+    <style>
+        .carousel-container {
+            margin: 20px auto;
+            width: 300px;
+            height: 150px;
+            border: 3px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            z-index: -1;
+        }
+
+        .carousel-item {
+            height: 100%;
+            flex: 0 0 100%;
+            width: 100%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5em;
+        }
+
+        .indicator {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 3%;
+        }
+
+        .indicator span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            margin: 0 3px;
+            cursor: pointer;
+            display: inline-flex;
+        }
+
+        .active {
+            background-color: #fff;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #ccc;
+            opacity: 0.5;
+        }
+
+        .carousel-arrow-left {
+            left: 3%;
+        }
+
+        .carousel-arrow-right {
+            right: 3%;
+        }
+
+        .item-1 {
+            background: orangered;
+        }
+
+        .item-2 {
+            background: orange;
+        }
+
+        .item-3 {
+            background: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="section2">Section 2</h2>
+    <p>consectetur condimentum. Suspendisse pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh,
+        ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.</p>
+    <p>Praesent at pellentesque augue. Nunc sed ullamcorper risus. Duis tincidunt consectetur condimentum. Suspendisse
+        pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus
+        orci. Etiam vitae sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+
+    <h2 id="someID" class="text-lg font-bold">someID</h2>
+    <p>救历治洪娟俭作不是得母后才到未叩找，互事登书谓系天未藏要制降商你生尹我为，意自训和忧开仍的牙人厅久木乐，仁、并，也盲国县自颜使后听不道年居命是洪十韦，虽少通读落所你苦丑听帝安活他临降活回，冒么倒，实。</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptatum placeat temporibus quod sit quos
+        aperiam ipsa ipsum repellendus. Corrupti id eius natus quae distinctio! Deleniti eveniet quidem corporis a
+        cupiditate atque modi numquam quaerat sit minima voluptatem, nemo ipsa ut delectus sunt iusto maiores. Suscipit
+        voluptatum exercitationem vitae earum! Voluptates aspernatur laboriosam fugit quidem accusamus asperiores
+        excepturi ex? Consequuntur, doloribus tempora facilis molestias repellendus alias quibusdam maxime?
+        Reprehenderit ullam rerum tempore a ad laborum adipisci sit? Amet eaque deserunt deleniti eius totam doloremque
+        aliquid quibusdam perferendis voluptas accusamus voluptates, iusto porro praesentium magnam quos, est distinctio
+        fugit quidem mollitia molestiae nesciunt beatae. Deleniti, expedita facilis! Consequuntur consectetur rerum at
+        dolorum repellat, ullam atque voluptatibus architecto perspiciatis, natus eveniet earum. Odit autem mollitia
+        voluptatem pariatur consequatur, sapiente expedita?</p>
+
+    <h2 id="section3">Section 3</h2>
+    <p>Praesent at pellentesque augue. Nunc sed ullamcorper risus. Duis tincidunt consectetur condimentum. Suspendisse
+        pharetra purus urna, ac pretium mi elementes, nascetur ridiculus mus.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nibh quam, egestas eu eros molestie, eleifend
+        viverra augue. Suspendisse potenti. Quisque commodo consectetur quam, non pretium orci viverra at. Maecenas eget
+        iaculis nunc.</p>
+    <p>Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.</p>
+    <p>consectetur condimentum. Suspendisse pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh,
+        ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.</p>
+    <p>Praesent at pellentesque augue. Nunc sed ullamcorper risus. Duis tincidunt consectetur condimentum. Suspendisse
+        pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus
+        orci. Etiam vitae sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+    <p>consectetur condimentum. Suspendisse pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh,
+        ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.</p>
+    <p>Praesent at pellentesque augue. Nunc sed ullamcorper risus. Duis tincidunt consectetur condimentum. Suspendisse
+        pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus
+        orci. Etiam vitae sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+    <p>consectetur condimentum. Suspendisse pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh,
+        ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.</p>
+    <p>Praesent at pellentesque augue. Nunc sed ullamcorper risus. Duis tincidunt consectetur condimentum. Suspendisse
+        pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus
+        orci. Etiam vitae sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+    <p>consectetur condimentum. Suspendisse pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh,
+        ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.</p>
+    <p>Praesent at pellentesque augue. Nunc sed ullamcorper risus. Duis tincidunt consectetur condimentum. Suspendisse
+        pharetra purus urna, ac pretium mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus
+        orci. Etiam vitae sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Mi elementum et. Praesent dui nibh, ullamcorper in justo sed, volutpat cursus orci. Etiam vitae sodales massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,</p>
+
+    <div class="carousel-container">
+        <div class="carousel-list">
+            <div class="carousel-item item-1">1</div>
+            <div class="carousel-item item-2">2</div>
+            <div class="carousel-item item-3">3</div>
+        </div>
+        <div class="carousel-arrow carousel-arrow-left">《</div>
+        <div class="carousel-arrow carousel-arrow-right">》</div>
+        <div class="indicator">
+            <span class="active"></span>
+            <span class=""></span>
+            <span class=""></span>
+        </div>
+    </div>
+
+    <script>
+        const doms = {
+            carouselList: document.querySelector(".carousel-list"),
+            arrowLeft: document.querySelector(".carousel-arrow-left"),
+            arrowRight: document.querySelector(".carousel-arrow-right"),
+            indicator: document.querySelectorAll(".indicator span")
+        };
+        const count = doms.indicator.length; // 轮播图数量
+        let curIndex = 0; // 当前轮播图索引
+        console.log(doms);
+        console.log(count);
+
+        const moveTo = index => {
+            console.log('moveTo', index)
+            doms.carouselList.style.transform = `translateX(-${index * 100}%)`;
+            doms.carouselList.style.transition = "all 0.5s";
+            // 去掉指示器的选中效果
+            let active = document.querySelector(".indicator span.active");
+            active.classList.remove("active");
+            // 添加指示器
+            doms.indicator[index].classList.add("active");
+            curIndex = index
+        };
+
+        doms.indicator.forEach((item, i) => {
+            item.onclick = () => {
+                moveTo(i);
+            };
+        });
+
+        const moveLeft = () => {
+            // if (已经是第一张图了) {
+            //     console.log('无缝')
+            // } else {
+            //     moveTo(当前索引-1)
+            // }
+            if (curIndex === 0) {
+                console.log(count)
+                console.log('moveLeft', curIndex)
+                doms.carouselList.style.transform = `translateX(-${count * 100}%)`;
+                doms.carouselList.style.transition = 'none'
+                // 等待浏览器渲染后再执行 requestAnimationFrame(() => {})
+                // 强制渲染 获取元素的几何属性 位置或尺寸 doms.carouselList.getBoundingClientRect() | doms.carouselList.clientHeight
+                doms.carouselList.clientHeight
+                moveTo(count - 1)
+            } else {
+                console.log('moveLeft', curIndex - 1)
+                moveTo(curIndex - 1)
+            }
+        };
+
+        const moveRight = () => {
+            if (curIndex === count - 1) {
+                console.log('moveRight', curIndex)
+                doms.carouselList.style.transform = `translateX(100%)`;
+                doms.carouselList.style.transition = 'none'
+                doms.carouselList.clientHeight
+                moveTo(0)
+            } else {
+                console.log('moveRight', curIndex + 1)
+                moveTo(curIndex + 1)
+            }
+        };
+
+        doms.arrowLeft.onclick = moveLeft;
+        doms.arrowRight.onclick = moveRight;
+
+        const init = () => {
+            // 找到轮播区域的第一个元素
+            const firstCloned = doms.carouselList.firstElementChild.cloneNode(true);
+            // 最后一个复制一份放到第一个
+            const lastCloned = doms.carouselList.lastElementChild.cloneNode(true);
+            lastCloned.style.marginLeft = "-100%";
+            // appendChild放到末尾
+            doms.carouselList.appendChild(firstCloned);
+            // insertBefore放到第一个
+            doms.carouselList.insertBefore(
+                lastCloned,
+                doms.carouselList.firstElementChild
+            );
+        };
+
+        window.onload = () => {
+            init();
+            console.log(doms.carouselList.children[2])
+            // js API scrollIntoView()
+            // 适用于整个网页的纵向滚动，任何一个区域的滚动都可以
+
+            // 平滑滚动
+            // doms.carouselList.children[2].scrollIntoView({ behavior: 'smooth' })
+
+            // 平滑滚动到可视范围的中间
+            // document.querySelector('#section3').scrollIntoView({behavior: 'smooth', block: 'center'})
+            document.querySelector('#section3').scrollIntoView({behavior: 'smooth'})
+        }
+    </script>
+</body>
+
+</html>

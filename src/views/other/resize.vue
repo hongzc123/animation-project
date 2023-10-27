@@ -5,9 +5,10 @@
 </template>
 
 <script lang="ts" setup>
+import { ref, type Ref } from "vue";
 // import { useCharts } from "../utils/useCharts";
-const chartRef = ref(null);
-const width = ref(500);
+const chartRef: Ref = ref(null);
+const width: Ref = ref(500);
 // useCharts(width, chartRef);
 
 const handleSizeChange = (size: any) => {
