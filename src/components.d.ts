@@ -12,6 +12,7 @@ declare module 'vue' {
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElImage: typeof import('element-plus/es')['ElImage']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    MessageBox: typeof import('./components/MessageBox.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TypeSelector: typeof import('./components/TypeSelector.vue')['default']

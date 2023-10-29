@@ -5,7 +5,7 @@ import router from './router/index'
 import store from './store/index'
 import useUserStore from './store/user'
 import './assets/css/index.scss'
-import directives from '../src/directives/index'
+import directives from '@/directives/index.js'
 
 import "element-plus/theme-chalk/dark/css-vars.css"
 
