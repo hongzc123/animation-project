@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import path from 'path'
 // import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from "@vitejs/plugin-vue-jsx";  // 配置vue使用jsx
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 // 用于自动导入elementplus用到的组件
@@ -13,6 +14,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(),
      // 自动导入
      AutoImport({
       imports: ["vue", "vue-router"],

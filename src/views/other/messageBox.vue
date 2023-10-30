@@ -4,11 +4,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { showMsg } from "@/utils/message";
 
 const openMsg = () => {
-  showMsg("dsdafa", close => {
+  showMsg("dsdafa", (close?: () => void) => {
     console.log("弹窗关闭");
     close();
   });
