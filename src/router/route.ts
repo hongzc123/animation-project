@@ -13,6 +13,7 @@ import SmoothRise from '../views/other/smoothRise.vue'
 import HorizontalScroll from '../views/other/horizontalScroll.vue'
 import ImageSelect from '../views/other/imageSelect.vue'
 import messageBox from '../views/other/messageBox.vue'
+import input from '../views/other/input.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -79,6 +80,11 @@ const routes: RouteRecordRaw[] = [
         path: '/messageBox',
         name: 'messageBox',
         component: messageBox
+    },
+    {
+        path: '/input',
+        name: 'input',
+        component: input
     }
 ]
 
